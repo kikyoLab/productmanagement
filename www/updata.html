@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>麦子易商产品管理分析平台</title>
+  <link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: white;">
+      <div class="layui-logo">
+        <img src='icon/T-1.jpg' width="200px" height="60px" style="margin-top:-1px">
+      </div>
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item">
+          <div class="demoTable">
+            <button class="layui-btn" data-type="reload" style='background-color: white;'>
+              <img src="icon/icon-ss.png">
+            </button>
+            <div class="layui-inline">
+              <input class="layui-input" name="id" id="demoReload" autocomplete="off" placeholder="搜索">
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="userSetting.html" style='color:black'>
+            <img src='icon/icon-sz.png' style="margin-top:-2px;">
+            设置管理
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;" style=' color:black'>
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            username
+            <img src='icon/icon-xx.png'>
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="userSetting.html">基本资料</a></dd>
+            <dd><a href="userInfo.html">安全设置</a></dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll" style='background-color: white;'>
+        <ul class="layui-nav layui-nav-tree" lay-filter="test" style="margin-top:20px;background-color: white;"
+          id='ulist'>
+          <li class="layui-nav-item" value='date.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-bbgx.png' style="margin:-5px 0 0 -10px;"> 数据总览</a></li>
+          <li class="layui-nav-item" value='updata.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-bbgx-1.png' style="margin:-5px 0 0 -10px;"> 版本/更新升级</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-sy-1.png' style="margin:-5px 0 0 -10px;"> 收银/结算/付款/查找</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-gnym-1.png' style="margin:-5px 0 0 -10px;"> 功能界面/操作模块</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-sjxz-1.png' style="margin:-5px 0 0 -10px;"> 下载数据/上传数据</a></li>
+          <li class="layui-nav-item" value='index.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-tc-1.png' style="margin:-5px 0 0 -10px;"> 登录/注销退出</a></li>
+          <li class="layui-nav-item" value='feedback.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-zc-1.png' style="margin:-5px 0 0 -10px;"> 问题反馈</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-wtfk-1.png' style="margin:-5px 0 0 -10px;"> 注册授权</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="layui-body" style="padding: 20px; background-color: #dee2e6;">
+      <div class="body-title">
+        <h1>版本更新 / 升级</h1>
+        <p style="margin-top:10px">用户对各个软件版本所做的下载、更新、升级的操作记录</p>
+      </div>
+      <div class='data-filter' style='height: 60px;background-color: white;margin: 20px 0 0 0;'>
+        <div class="layui-inline" style="margin:10px 0 10px -10px;">
+          <label class="layui-form-label" style='width: 40px;'>软件</label>
+          <select name="modules" lay-verify="required" lay-search=""
+            style="margin:5px 0 0 0;height: 30px;width: 150px;">
+            <option value="">全部</option>
+            <option value="1">一点易用APP</option>
+            <option value="2">自助收银机</option>
+            <option value="3">安卓收银POS系统</option>
+          </select>
+        </div>
+        <div class="layui-inline" style='margin:10px 0 -10px 30px;'>
+          <div class="layui-form">
+            <div class="layui-form-item">
+              <div class="layui-inline">
+                <label class="layui-form-label" style='width: 60px;'>操作日期</label>
+                <div class="layui-input-inline">
+                  <input type="text" class="layui-input" id="test1" placeholder="全部">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="layui-inline" style="margin:10px 0 10px 0;">
+          <label class="layui-form-label" style='width: 60px;'>客户SN</label>
+          <select name="modules" lay-verify="required" lay-search=""
+            style="margin:5px 0 0 0;height: 30px;width: 150px;">
+            <option value="">全部</option>
+            <option value="1">111</option>
+            <option value="2">222</option>
+            <option value="3">333</option>
+            <option value="4">444</option>
+            <option value="5">555</option>
+            <option value="6">666</option>
+            <option value="7">777</option>
+          </select>
+        </div>
+        <div class="layui-inline" style="margin:10px 0 10px 40px;">
+          <label class="layui-form-label" style='width: 60px;'>分店号</label>
+          <select name="modules" lay-verify="required" lay-search=""
+            style="margin:5px 0 0 0;height: 30px;width: 150px;">
+            <option value="">全部</option>
+            <option value="1">111</option>
+            <option value="2">222</option>
+            <option value="3">333</option>
+            <option value="4">444</option>
+            <option value="5">555</option>
+            <option value="6">666</option>
+            <option value="7">777</option>
+          </select>
+        </div>
+        <div class="layui-inline" style="margin:10px 0 10px 40px;">
+          <label class="layui-form-label" style='width: 60px;'>用户编号</label>
+          <select name="modules" lay-verify="required" lay-search=""
+            style="margin:5px 0 0 0;height: 30px;width: 150px;">
+            <option value="">全部</option>
+            <option value="1">111</option>
+            <option value="2">222</option>
+            <option value="3">333</option>
+            <option value="4">444</option>
+            <option value="5">555</option>
+            <option value="6">666</option>
+            <option value="7">777</option>
+          </select>
+        </div>
+        <div class="layui-inline" style="margin: 0 0 0 200px;">
+          <button class="layui-btn" lay-submit lay-filter="formDemo" style="width: 100px;text-align: center;">
+            <img src="icon/icon-ss.png">筛选</button>
+        </div>
+      </div>
+      <div class="body-main" style="background-color: white;margin-top:20px">
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+          <table class="layui-hide" id="test"></table>
+        </div>
+      </div>
+    </div>
+    <div class="layui-footer" style=" background-color: #dee2e6;padding:0 20px 0 20px;height: 50px;">
+    </div>
+  </div>
+  <script src="layui/layui.js" charset="utf-8"></script>
+  <script src="layui/layui.all.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    layui.use(['element', 'form', 'layedit', 'laydate', 'table'], function () {
+      var element = layui.element;
+      var form = layui.form;
+      var layer = layui.layer;
+      var layedit = layui.layedit;
+      var laydate = layui.laydate;
+      var table = layui.table;
+
+      //日期
+      laydate.render({
+        elem: '#test1'
+      });
+
+      //创建一个编辑器
+      var editIndex = layedit.build('LAY_demo_editor');
+
+      //表单取值
+      layui.$('#LAY-component-form-getval').on('click', function () {
+        var data = form.val('example');
+        alert(JSON.stringify(data));
+      });
+
+      table.render({
+        elem: '#test',
+        url: 'js/update.json',
+        cols: [[
+          { field: 'id', width: 100, title: '序号' },
+          { field: 'SN', width: 250, title: 'SN' },
+          { field: 'room', width: 100, title: '分店' },
+          { field: 'userid', width: 300, title: '操作用户编号' },
+          { field: 'date', width: 300, title: '日期' },
+          { field: 'updateApp', width: 300, title: '更新升级软件' },
+          { field: 'updateVersion', title: '更新升级版本' },
+        ]],
+        page: true,
+      });
+
+      //读取登录session
+      var str = sessionStorage.obj;
+      if (!str) {
+        location.href = 'index.html'
+      }
+      var sessionobj = $.parseJSON(str);
+      var loginuserid = sessionobj[0].userid;
+      var logintoken = sessionobj[0].accesstoken;
+
+      //跳转功能授权验证
+      $("#ulist").on("click", "li", function () {
+        var url = $(this).attr('value')
+
+        $.ajax({
+          type: 'POST',
+          url: 'http://key.mzsale.cn/api/productsmanagement',
+          dataType: 'json',
+          data: JSON.stringify({ "vtype": "tokencheck", "item1": loginuserid, "item2": logintoken }),
+          async: false,
+          success: function (data, status) {
+            if (data[0].result == 'success') {
+              window.location.href = url
+            } else {
+              layer.confirm('权限已失效，请重新登录', function (index) {
+                sessionStorage.clear();
+                location.href = 'index.html'
+              })
+            }
+          }
+        })
+      })
+    });
+  </script>
+</body>
+
+</html>

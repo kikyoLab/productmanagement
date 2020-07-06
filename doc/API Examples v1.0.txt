@@ -1,0 +1,166 @@
+﻿一、API全局参数：
+
+  请求Url:
+      --http://key.mzsale.cn/api/productsmanagement
+
+  请求Method:
+      --POST
+
+	  
+  返回数据：参考数据字典（重要）
+
+          1.成功：[{"result":"success"...}...]
+          2.失败：[{"result":"warning","message":"xxxxx"...}...]
+  
+  备注：以@开头的为变量，上传时替换为实际值！！！！！！
+
+二、方法列表（逐步更新）：
+
+1.新增用户***
+
+    Data:
+      --{"vtype":"adduser","item1":"@userid","item2":"@username","item3":"@upassword","item4":"@authority","item5":"@isenable","item6":"@isadmin","item7":"@admin_userid"}
+	  
+	Tip:
+	    --@admin_userid：操作员userid
+		--@userid:    用户userid
+		--@username： 用户名称
+		--@upassword：用户密码
+		--@authority：授权列表
+		--@isenable： 有效标识
+		--@isadmin：  管理员标识
+
+	示例：
+	     
+		 {"vtype":"adduser","item1":"mz10006","item2":"测试员10006","item3":"12345678","item4":"login;exit;upload;","item5":"T","item6":"F","item7":"mz10001"}
+
+2.查询全部用户****
+
+    Data:
+      --{"vtype":"alluser","item1":"@userid"}
+	  
+	Tip:
+	  --@userid：操作员userid	    	  
+
+	示例：
+	     
+		 {"vtype":"alluser","item1":"mz10001"}
+		 
+3.删除用户***
+		 
+    Data:
+      --{"vtype":"deluser","item1":"@userid","item2":"@id"}
+	  
+	Tip:
+	  --@userid：操作员userid
+	  --@id：被删除用户唯一标识id，由查询用户接口获得
+
+	示例：
+	     
+		 {"vtype":"deluser","item1":"mz10001","item2":"5"}
+		 
+4.用户登录***
+		 
+    Data:
+      --{"vtype":"userlogin","item1":"@userid","item2":"@upassword"}
+	  
+	Tip:
+	  --@userid：用户编号
+	  --@upassword：用户密码
+
+	示例：
+	     
+		 {"vtype":"userlogin","item1":"mz10001","item2":"12345678"}		 
+		 
+
+5.授权验证****
+		 
+    Data:
+      --{"vtype":"tokencheck","item1":"@userid","item2":"@accesstoken"}
+	  
+	Tip:
+	  --@userid：操作员userid
+	  --@accesstoken：登录成功获得的 accesstoken
+
+	示例：
+	     
+		 {"vtype":"tokencheck","item1":"mz10001","item2":"ce4b62e7150377afb522713fbd784e0a"}		
+		 
+
+6.管理员获取全部事件****
+		 
+    Data:
+      --{"vtype":"allevent","item1":"@userid"}
+	  
+	Tip:
+	  --@userid：操作员userid
+
+	示例：
+	     
+		 {"vtype":"allevent","item1":"mz10001"}		
+		 
+7.用户查询已获得事件****
+		 
+    Data:
+      --{"vtype":"userevent","item1":"@userid"}
+	  
+	Tip:
+	  --@userid：操作员userid
+
+	示例：
+	     
+		 {"vtype":"userevent","item1":"mz10001"}	
+		 
+8.用户更新自己的名称和密码****
+
+    Data:
+      --{"vtype":"updateself","item1":"@userid","item2":"@username","item3":"@upassword"}
+	  
+	Tip:
+	    --@userid：操作员userid
+		--@username：新的名称，为空则不修改
+		--@upassword：新的密码，为空则不修改
+		
+	示例：
+	     
+		 {"vtype":"updateself","item1":"mz10001","item2":"新的测试员","item3":"12345"}
+
+9.管理员更新用户信息****
+
+    Data:
+      --{"vtype":"updateuser","item1":"@admin_userid","item2":"@userid","item3":"@username","item4":"@upassword","item5":"@authority","item6":"@isenable","item7":"@isadmin"}
+	  
+	Tip:
+	    --@admin_userid：操作员userid
+		--@userid:    更新的用户userid
+		--@username： 新的名称，为空则不修改
+		--@upassword：新的密码，为空则不修改
+		--@authority：新的授权列表，为空则不修改
+		--@isenable： 新的有效标识，为空则不修改
+		--@isadmin：  新的管理员标识，为空则不修改
+	示例：
+	     
+		 {"vtype":"updateuser","item1":"mz10001","item2":"mz10006","item3":"新的测试员6","item4":"123456","item5":"login;","item6":"T","item7":"F"}
+
+	
+三、测试数据
+
+    1.超级管理员用户
+	
+       账号： mzsale 密码：mzsale.com
+	   
+    2.管理员用户	
+	   
+	   账号： mz10001 密码：12345678
+	   
+	   
+	   
+	
+	
+	
+	
+	
+	
+	
+	
+	

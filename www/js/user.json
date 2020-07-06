@@ -1,0 +1,49 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "id": 1,
+      "userid": "MZ00001",
+      "username": "郑超AZ-12258-MA",
+      "isadmin": "",
+      "effect": ""
+    },
+    {
+      "id": 2,
+      "userid": "MZ00002",
+      "username": "郑超AZ-12259-MA",
+      "isadmin": "",
+      "effect": ""
+    },
+    {
+      "id": 3,
+      "userid": "MZ00003",
+      "username": "郑超AZ-12260-MA",
+      "isadmin": "",
+      "effect": ""
+    },
+    {
+      "id": 4,
+      "userid": "MZ00004",
+      "username": "郑超AZ-12261-MA",
+      "isadmin": "",
+      "effect": ""
+    },
+    {
+      "id": 5,
+      "userid": "MZ00005",
+      "username": "郑超AZ-12262-MA",
+      "isadmin": "",
+      "effect": ""
+    },
+    {
+      "id": 6,
+      "userid": "MZ00006",
+      "username": "郑超AZ-12263-MA",
+      "isadmin": "",
+      "effect": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+############# MZProductManageUser      产品分析管理用户表
+
+id                      用户唯一识别码 <系统自动生成，示例： 101>
+userid                  用户编号       <字母+数字组成，小于10位，示例：mz10002>
+username                用户名称       <小于30个字符，示例：测试员>
+upassword               登录密码       <小于30个字符，示例： 12345678>
+authority               功能授权列表   <示例：login;exit;upload;>
+accesstoken             访问token      <示例：ce4b62e7150377afb522713fbd784e0a，有效时间 60 分钟>
+logindate               登录日期       <示例：2020-03-20 11:20:20>
+isenable                有效标识       <T-正常用户，F-未启用用户，不可登录>
+isadmin                 管理员标识     <T-管理员，F-非管理员>
+issuper                 超级管理员标识 <T-超级管理员，F-非超级管理员>
+isdelete                删除标识       <T-删除用户，不可操作，F-正常用户，可操作编辑>
+remark                  备注信息       <预留>
+
+
+############# MZProductManageEvent      产品分析事件表
+
+id                      事件唯一识别码  <系统自动生成，示例： 1007>
+eventid                 事件编号        <小于10位字母，示例： login>
+eventname               事件名称        <小于30个字符，示例： 登录事件>
+remark                  事件备注        <示例： 用户登录事件>
+

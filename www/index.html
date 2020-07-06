@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+  <div class='main'>
+    <h2 class='title'><strong>麦子易商 - 产品管理分析后台</strong></h2>
+    <div class='container'>
+      <div class='logo'>
+        <img src='icon/T-bj1-1.png' style="border-radius: 2% 0 0 2%;" height="400" width="600">
+      </div>
+      <div class='userlogin'>
+        <form>
+          <div class='word'>
+            <h2><strong style="color:#4d79ff">登 录</strong></h2>
+            <p style="margin-top:10px;">使用用户编号 密码登录软件数据后台</p>
+          </div>
+          <div class='userid'>
+            <label class="layui-form-label">用户编号</label>
+            <div class="layui-form-item">
+              <div class="layui-input-inline">
+                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入用户编号"
+                  class="layui-input" id="userid" value="" style='width: 250px;' onkeydown="login()">
+              </div>
+            </div>
+          </div>
+          <div class='userpwd'>
+            <label class="layui-form-label">密码</label>
+            <div class="layui-form-item">
+              <div class="layui-input-inline">
+                <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off"
+                  class="layui-input" id="userpwd" value="" style='width: 250px;' onkeydown="login()">
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="layui-input-inline">
+          <button class="layui-btn" id='login' style="width: 250px;">登 录</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="layui/layui.all.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    layui.use(['element', 'form', 'layedit', 'laydate'], function () {
+      var element = layui.element;
+      var form = layui.form;
+      var layer = layui.layer;
+      var layedit = layui.layedit;
+      var laydate = layui.laydate;
+    });
+    var userid = document.getElementById('userid');
+    var upassword = document.getElementById('userpwd');
+    //回车登录
+
+
+
+
+    //校验
+    var r = /^[^\u4e00-\u9fa5]+$/
+    function login() {
+      var e = window.event;
+      if (e.keyCode == '13') {
+        if (userid.value == '' || r.test(userid.value) == false) {
+          layer.confirm('请正确填写用户编号及密码', function (index) {
+            layer.close(index)
+          })
+        } else {
+          userLogin();
+        }
+      }
+    }
+
+
+    //button登录
+    $("#login").click(function () {
+      if (userid.value == '' || r.test(userid.value) == false) {
+        layer.confirm('请填写用户编号及密码', function (index) {
+          layer.close(index)
+        })
+      } else {
+        userLogin();
+      }
+    });
+
+    function userLogin() {
+      $.post(
+        "http://key.mzsale.cn/api/productsmanagement",
+        JSON.stringify({
+          "vtype": "userlogin",
+          "item1": userid.value,
+          "item2": upassword.value
+        }),
+        function (data, status) {
+          if (data[0].result == 'success') {
+            sessionStorage.obj = JSON.stringify(data);
+            window.location.href = "userSetting.html"
+          } else {
+            layer.confirm(data[0].message, function (index) {
+              layer.close(index);
+            });
+          }
+        }
+      )
+    }
+
+  </script>
+</body>
+
+</html>

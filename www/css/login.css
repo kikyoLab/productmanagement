@@ -1,0 +1,217 @@
+body {
+  background-image: url('/www/icon/T-bj.jpg');
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12% 0 12% 0;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  margin: -310px;
+  margin-top: -230px;
+  color: #4d79ff;
+}
+
+.word {
+  margin: 20px 0 10px 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layui-input {
+  margin: 0 0 0 20px;
+}
+
+.layui-form-label {
+  text-align: left;
+  margin: 0 0 0 5px;
+}
+
+.layui-btn {
+  margin: 20px 0 0 20px;
+  background-color: #4d79ff;
+}
+
+.userlogin {
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  border-radius: 0 2% 2% 0;
+}
+
+.userid {
+  margin-top: 40px;
+}
+
+.container {
+  border-radius: 2% 0 0 2%;
+  box-shadow: 0 0 10px 1px #97c8e9;
+}
+
+@media only screen and (max-width:968px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12% 0 12% 0;
+    overflow: hidden;
+  }
+  .title {
+    position: absolute;
+    margin: -210px;
+    margin-top: -230px;
+    color: #4d79ff;
+  }
+  .word {
+    margin: 20px 0 10px 20px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .layui-input {
+    margin: 0 0 0 20px;
+  }
+  .layui-form-label {
+    text-align: left;
+    margin: 0 0 0 5px;
+  }
+  .layui-btn {
+    margin: 20px 0 0 20px;
+    background-color: #4d79ff;
+  }
+  .userlogin {
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    border-radius: 0 2% 2% 0;
+  }
+  .userid {
+    margin-top: 40px;
+  }
+  .container {
+    border-radius: 2% 0 0 2%;
+    box-shadow: 0 0 10px 1px #97c8e9;
+  }
+  .logo img {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-height:760px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12% 0 6% 0;
+    overflow: hidden;
+  }
+  .title {
+    position: absolute;
+    margin: -180px;
+    margin-top: -200px;
+    color: #4d79ff;
+  }
+  .word {
+    margin: 20px 0 10px 20px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .layui-input {
+    margin: 0 0 0 20px;
+  }
+  .layui-form-label {
+    text-align: left;
+    margin: -15px 0 0 5px;
+  }
+  .layui-btn {
+    margin: 10px 0 0 20px;
+    background-color: #4d79ff;
+  }
+  .userlogin {
+    height: 350px;
+    width: 300px;
+    background-color: white;
+    border-radius: 0 2% 2% 0;
+  }
+  .userid {
+    margin-top: 40px;
+  }
+  .container {
+    border-radius: 2% 0 0 2%;
+    box-shadow: 0 0 10px 1px #97c8e9;
+  }
+  .logo img {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* Firefox */
+
+@-moz-document url-prefix() {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 14% 0 12% 0;
+    overflow: hidden;
+  }
+  .title {
+    position: absolute;
+    margin: 210px;
+    margin-left: -200px;
+    margin-top: -180px;
+    color: #4d79ff;
+  }
+  .word {
+    margin: 20px 0 10px 20px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .layui-input {
+    margin: 0 0 0 20px;
+  }
+  .layui-form-label {
+    text-align: left;
+    margin: -20px 0 0 5px;
+  }
+  .layui-btn {
+    margin: 20px 0 0 20px;
+    background-color: #4d79ff;
+  }
+  .userlogin {
+    height: 350px;
+    width: 300px;
+    background-color: white;
+    border-radius: 0 2% 2% 0;
+  }
+  .userid {
+    margin-top: 40px;
+  }
+  .container {
+    border-radius: 2% 0 0 2%;
+    box-shadow: 0 0 10px 1px #97c8e9;
+  }
+  .logo img {
+    width: 400px;
+    height: 350px;
+  }
+}

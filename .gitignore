@@ -1,0 +1,4 @@
+*.apk
+.vscode/*
+*.sql
+**/.vscode/

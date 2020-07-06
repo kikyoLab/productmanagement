@@ -1,2 +1,3 @@
 # productmanagement
-mzsale后台管理系统
+
+麦子易商产品管理分析平台

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>麦子易商产品管理分析平台</title>
+  <link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+  <div class="layui-layout layui-layout-admin">
+    <div class="layui-header" style="background-color: white;">
+      <div class="layui-logo">
+        <img src='icon/T-1.jpg' width="200px" height="60px" style="margin-top:-1px">
+      </div>
+      <ul class="layui-nav layui-layout-left">
+        <li class="layui-nav-item">
+          <div class="demoTable">
+            <button class="layui-btn" data-type="reload" style='background-color: white;'>
+              <img src="icon/icon-ss.png">
+            </button>
+            <div class="layui-inline">
+              <input class="layui-input" name="id" id="demoReload" autocomplete="off" placeholder="搜索">
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
+          <a href="userSetting.html" style='color:black'>
+            <img src='icon/icon-sz.png' style="margin-top:-2px;">
+            设置管理
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;" style=' color:black'>
+            <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+            <span id="user"></span>
+            <img src='icon/icon-xx.png'>
+          </a>
+          <dl class="layui-nav-child">
+            <dd><a href="userSetting.html">基本资料</a></dd>
+            <dd><a href="userInfo.html">安全设置</a></dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll" style='background-color: white;height: 100%;'>
+        <ul class="layui-nav layui-nav-tree" lay-filter="test"
+          style="margin-top:20px;background-color: white;height: 100%;" id='ulist'>
+          <li class="layui-nav-item" value='date.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-bbgx.png' style="margin:-5px 0 0 -10px;"> 数据总览</a></li>
+          <li class="layui-nav-item" value='updata.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-bbgx-1.png' style="margin:-5px 0 0 -10px;"> 版本/更新升级</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-sy-1.png' style="margin:-5px 0 0 -10px;"> 收银/结算/付款/查找</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-gnym-1.png' style="margin:-5px 0 0 -10px;"> 功能界面/操作模块</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-sjxz-1.png' style="margin:-5px 0 0 -10px;"> 下载数据/上传数据</a></li>
+          <li class="layui-nav-item" value='index.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-tc-1.png' style="margin:-5px 0 0 -10px;"> 登录/注销退出</a></li>
+          <li class="layui-nav-item" value='feedback.html'><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-zc-1.png' style="margin:-5px 0 0 -10px;"> 问题反馈</a></li>
+          <li class="layui-nav-item"><a style='color:black;margin:10px 0 10px 0;'>
+              <img src='icon/icon-wtfk-1.png' style="margin:-5px 0 0 -10px;"> 注册授权</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="layui-body" style="padding: 20px; background-color: #dee2e6;height: 880px;height: 98%;">
+      <div class="body-title">
+        <h2>管理设置</h2>
+        <p style="margin-top:10px">对个人及用户资料进行维护 添加新用户账号及权限设置</p>
+      </div>
+      <div class="body-main" style="background-color: white;">
+        <div class=" body-nav">
+          <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+              <li><a href="userSetting.html">账号管理</a></li>
+              <li class="layui-this"><a href="addUser.html">新增账号</a></li>
+              <li><a href="userInfo.html">用户管理</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="body-content" style='height:650px;margin-top:10px;height: 700px;background-color: white;'>
+          <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>信息</legend>
+          </fieldset>
+          <form class="layui-form" action="" lay-filter="example">
+            <label class="layui-form-label" style='margin-left: 5px;'>用户编号<span style='color:red'>*</span></label>
+            <div class="layui-form-item">
+              <input type="text" name="userid" lay-verify="required" lay-reqtext="编号" placeholder="字母+数字，3~9位"
+                autocomplete="off" class="layui-input" style="width: 15%;margin-left: 40px;" id="uid" value="">
+            </div>
+            <label class="layui-form-label">用户名称</label>
+            <div class="layui-form-item">
+              <input type="text" name="username" lay-verify="required" lay-reqtext="用户名" placeholder="中文、字母、数字任意组合"
+                autocomplete="off" class="layui-input" style="width: 15%;margin-left: 40px;" id="uname" value="">
+            </div>
+            <div class="layui-row">
+              <div class="layui-col-xs2">
+                <div class="grid-demo grid-demo-bg1">
+                  <label class="layui-form-label" style='margin-left: -20px;'>密码<span style='color:red'>*</span></label>
+                  <div class="layui-form-item">
+                    <input type="password" name="upass" lay-verify="pass" autocomplete="off" class="layui-input"
+                      style="width: 90%;margin-left: 40px;" placeholder="" id="upwd" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="layui-col-xs2">
+                <div class="grid-demo">
+                  <label class="layui-form-label" style='margin-left: 25px;'>确认密码<span
+                      style='color:red'>*</span></label>
+                  <div class="layui-form-item">
+                    <input type="password" name="reupass" lay-verify="pass" autocomplete="off" class="layui-input"
+                      style="width: 90%;margin-left: 60px;" id="reupwd">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-form-item" pane="" id="isadmin">
+              <label class="layui-form-label" style='margin-left: 15px;'>管理员设置</label>
+              <div class="layui-input-block">
+                <input type="radio" name="Tadmin" value="true" title="是">
+                <input type="radio" name="Tadmin" value="false" title="否">
+              </div>
+            </div>
+            <div class="layui-form-item" pane="" id="isenable">
+              <label class=" layui-form-label">是否生效</label>
+              <div class="layui-input-block">
+                <input type="radio" name="Table" value="true" title="是" checked>
+                <input type="radio" name="Table" value="false" title="否">
+              </div>
+            </div>
+            <div>
+              <label class="layui-form-label">权限设置</label>
+              <div class="layui-form-item" pane="" style="margin-left: 40px;" id='userAuthority'>
+              </div>
+            </div>
+          </form>
+          <div class="layui-form-item" style='margin-left: 40px;margin-top: 20px;'>
+            <button type="submit" class="layui-btn" id="update">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="layui/layui.all.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script>
+    layui.use(['element', 'form', 'layedit', 'laydate'], function () {
+      var element = layui.element;
+      var form = layui.form;
+      var layer = layui.layer;
+      var layedit = layui.layedit;
+      var laydate = layui.laydate;
+      //获取所有事件
+      var allevent = (function () {
+        var result;
+        $.ajax({
+          type: 'POST',
+          url: 'http://key.mzsale.cn/api/productsmanagement',
+          dataType: 'json',
+          data: JSON.stringify({ "vtype": "allevent", "item1": "mzsale" }),
+          async: false,
+          success: function (data) {
+            result = data;
+          }
+        });
+        return result;
+      })();
+      //获取所有事件和事件名
+      let allAuthority = [], checktitle = [];
+      for (let n = 0; n < allevent.length; n++) {
+        allAuthority.push(allevent[n].eventid)
+        var b = allevent[n].eventname
+        checktitle.push(b);
+      }
+      //遍历全部事件设置checkbox
+      for (let m = 0; m < allAuthority.length; m++) {
+        $('#userAuthority').append(`<input type='checkbox' title="${checktitle[m]}" name='${allAuthority[m]}' lay-skin="primary"></input>`)
+      }
+      //动态获取全部事件设置checkbox状态
+      var g = { ...allAuthority }
+      var f = g
+      form.val('example', {
+        "Tadmin": '', "Table": '', f
+      });
+      //表单取值
+      layui.$('#update').on('click', function () {
+        var data = form.val('example');
+        userid = data.userid;
+        username = data.username;
+        upassword = data.upass;
+        reupassword = data.reupass;
+
+        var list = [], authoritlist = [];
+        for (let i = 0; i < allevent.length; i++) {
+          list.push(allevent[i].eventid)
+        }
+        for (let j = 0; j < allevent.length; j++) {
+          authoritlist.push(data[list[j]])
+        }
+        //遍历循环获取功能授权
+        for (let i = 0; i < authoritlist.length; i++) {
+          if (authoritlist[i] == 'on') {
+            a.push(list[i])
+          }
+        }
+        authority = a.join(";")
+        //admim和enable判断
+        if (data.Tadmin == 'true') {
+          isadmin = "T"
+        } else {
+          isadmin = "F"
+        }
+        if (data.Table == 'true') {
+          isenable = "T"
+        } else {
+          isenable = "F"
+        }
+        //自定义校验
+        var idreg = /^(?![0-9]+$)(?![a-zA-Z]+$)[A-Za-z0-9\\W]{3,9}$/
+        var namereg = /^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{1,10}$|[\u4e00-\u9fa5\dA-Za-z_]{1,9}$/
+        if (idreg.test(userid)) {
+          if (namereg.test(username)) {
+            if (upassword && reupassword && upassword == reupassword) {
+              //新增用户请求
+              $.ajax({
+                type: 'POST',
+                url: 'http://key.mzsale.cn/api/productsmanagement',
+                dataType: 'json',
+                data: JSON.stringify({ "vtype": "adduser", "item1": userid, "item2": username, "item3": upassword, "item4": authority, "item5": isenable, "item6": isadmin, "item7": loginuserid }),
+                async: false,
+                success: function (data, status) {
+                  if (data[0].result == 'success') {
+                    layer.confirm('添加用户成功', function (index) {
+                      location.href = 'addUser.html'
+                      layer.close(index)
+                    })
+                  } else {
+                    layer.confirm(data[0].message, function (index) {
+                      layer.close(index)
+                    })
+                  }
+                }
+              })
+            } else {
+              layer.confirm('密码长度错误或两次密码不一致', function (index) {
+                layer.close(index)
+              })
+            }
+          } else {
+            layer.confirm('用户名长度过短(1~10位）或格式错误', function (index) {
+              layer.close(index)
+            })
+          }
+        } else {
+          layer.confirm('用户ID格式错误(3~9位字符数字组合)，请重试', function (index) {
+            layer.close(index)
+          })
+        }
+      });
+      //新增用户信息
+      var userid, username, upassword, reupassword, isenable, isadmin, authority, isadmin, isenable
+      var a = [];
+      //跳转拦截
+      var str = sessionStorage.obj;
+      if (!str) {
+        location.href = 'index.html'
+      }
+      //获取session数据
+      var sessionobj = $.parseJSON(str);
+      var loginuserid = sessionobj[0].userid;
+      var logintoken = sessionobj[0].accesstoken;
+      //是否为超级管理员
+      if (loginuserid !== 'mzsale') {
+        $("#isadmin").hide();
+      } else {
+        $("#isadmin").show();
+      }
+      $("#user").html(sessionobj[0].username)
+      //跳转功能授权验证
+      $("#ulist").on("click", "li", function () {
+        var url = $(this).attr('value')
+        $.ajax({
+          type: 'POST',
+          url: 'http://key.mzsale.cn/api/productsmanagement',
+          dataType: 'json',
+          data: JSON.stringify({ "vtype": "tokencheck", "item1": loginuserid, "item2": logintoken }),
+          async: false,
+          success: function (data, status) {
+            if (data[0].result == 'success') {
+              window.location.href = url
+            } else {
+              layer.confirm('权限已失效，请重新登录', function (index) {
+                sessionStorage.clear();
+                location.href = 'index.html'
+              })
+            }
+          }
+        })
+      })
+    });
+  </script>
+</body>
+
+</html>
